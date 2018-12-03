@@ -9,5 +9,4 @@ fun main(args: Array<String>) {
     println("Resulting frequency: $frequency")
 }
 
-fun getResultingFrequency(changes: Sequence<String>) =
-    changes.sumBy { it.drop(1).toInt() }
+fun getResultingFrequency(changes: Sequence<String>) = changes.sumBy(String::toInt)
