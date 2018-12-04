@@ -27,13 +27,11 @@ fun getResultingFrequency(changes: Sequence<Int>) = changes.sum()
 fun getFirstFrequencyReachedTwice(changes: Sequence<Int>): Int {
     val reached = mutableSetOf(0)
     var result = 0
-    var iterator = changes.iterator()
-    var isReachedTwice = false
-    while (!isReachedTwice) {
-        if (!iterator.hasNext()) iterator = changes.iterator()
-        result += iterator.next()
-        if (reached.contains(result)) isReachedTwice = true
-        else reached.add(result)
+    loop@while (true) {
+        for (change in changes) {
+            result += change
+            if (!reached.add(result)) break@loop
+        }
     }
     return result
 }
