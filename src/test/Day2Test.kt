@@ -1,6 +1,5 @@
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * @author pawegio
@@ -19,5 +18,19 @@ class Day2Test {
             "ababab"
         )
         assertEquals(4 * 3, getChecksum(ids))
+    }
+
+    @Test
+    fun `get common letters`() {
+        val ids = sequenceOf(
+            "abcde",
+            "fghij",
+            "klmno",
+            "pqrst",
+            "fguij",
+            "axcye",
+            "wvxyz"
+        )
+        assertEquals("fgij", getCommonLetters(ids))
     }
 }
